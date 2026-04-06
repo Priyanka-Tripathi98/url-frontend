@@ -14,7 +14,7 @@ function Url() {
     e.preventDefault()
   
   try{
-    const res = await fetch("http://localhost:7000/url/shorten", {
+    const res = await fetch("https://url-backend.onrender.com/url/shorten", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
