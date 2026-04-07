@@ -10,25 +10,33 @@ function Url() {
     // Logic to shorten the URL and set the shortUrl state
   }
   
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-  
-  try{
+ const handleSubmit = async (e) => {
+  e.preventDefault()
+
+  try {
     const res = await fetch("https://url-backend.onrender.com/url/shorten", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({originalUrl: url})
+      body: JSON.stringify({ originalUrl: url })
     })
+
     const data = await res.json()
-    setShortUrl(data.shortUrl)
-    // console.log(`Shortened URL: ${data.shortUrl}`)
-    alert("URL shortened successfully!")
-  } catch (error) {
-   alert("Error shortening URL. Please try again.")
+
+    if (!res.ok) {
+      console.log(data)
+      throw new Error(data.message || "Something went wrong")
     }
+
+    setShortUrl(data.shortUrl)
+    alert("URL shortened successfully!")
+
+  } catch (error) {
+    console.error(error)
+    alert(error.message)
   }
+}
   return (
     <div>
     <h2>URL Shortener</h2>
