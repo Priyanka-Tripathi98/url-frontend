@@ -53,12 +53,7 @@ function Url() {
 
       {shortUrl && (
         <div>
-          <p>
-            Shortened URL:{" "}
-            <a href={shortUrl} target="_blank" rel="noopener noreferrer">
-              {shortUrl}
-            </a>
-          </p>
+         <p> Shortened URL:{""} <a href={shortUrl} target="_blank" rel="noopener noreferrer"> {shortUrl.slice(-4)} </a> </p>
         </div>
       )}
     </div>
