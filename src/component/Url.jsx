@@ -13,7 +13,7 @@ function Url() {
     e.preventDefault()
 
     try {
-      const res = await fetch("https://url-backend.onrender.com/api/shorten", {
+      const res = await fetch("https://url-backend-cijf.onrender.com/url/shorten", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
